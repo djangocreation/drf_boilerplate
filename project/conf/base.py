@@ -173,7 +173,7 @@ LOGGING = {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filters': ['require_debug_false'],
-            'filename': 'log/error.log',
+            'filename': '../logs/django_error.log',
             'formatter': 'verbose'
         },
     },
