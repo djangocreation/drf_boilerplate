@@ -7,7 +7,7 @@ SOCKFILE=$project_root/run/gunicorn.sock  # we will communicte using this unix s
 USER=$project_user                        # the user to run as
 GROUP=$project_user                       # the group to run as
 
-# CONFIGURATION SUR LE SQUELETTE DJANGO
+# CONFIGURATION SUR LE SQUELETTE
 NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
 DJANGO_SETTINGS_MODULE=conf.base             # which settings file should Django use
 DJANGO_WSGI_MODULE=wsgi                     # WSGI module name
@@ -24,7 +24,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec ../venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
